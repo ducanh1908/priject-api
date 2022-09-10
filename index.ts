@@ -2,6 +2,8 @@ import express from "express"
 import dotenv from "dotenv"
 import mongoose from "mongoose"
 import { Request, Response } from "express";
+import { router } from './src/routes/routes';
+import bodyParser from "body-parser";
 const app = express();
 dotenv.config();
 
@@ -10,10 +12,9 @@ mongoose.connect(DB_URL).then(()=> {
     console.log("Connected to MongoDB")
 })
 .catch(err => console.log("MongoDB error: " + err) )
+app.use(bodyParser.json());
 
-app.get("/",(req:Request, res:Response)=> {
-res.send("hello")
-})
+app.use("",router)
 
 app.listen(`${process.env.PORT}`, () => {
     console.log(`Express server listening on ${process.env.PORT}`);
