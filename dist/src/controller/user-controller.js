@@ -56,6 +56,16 @@ class Usercontroller {
                 next(e);
             }
         });
+        this.getUser = (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+            let idUser = req.params.id;
+            try {
+                let user = yield user_model_1.default.findById(idUser);
+                res.status(200).json(user);
+            }
+            catch (e) {
+                next(e);
+            }
+        });
     }
 }
 exports.default = new Usercontroller();

@@ -6,4 +6,4 @@ const user_route_1 = require("./user-route");
 const auth_route_1 = require("./auth-route");
 exports.router = (0, express_1.Router)();
 exports.router.use('/users', user_route_1.userRoute);
-exports.router.use('/register', auth_route_1.authRoute);
+exports.router.use('', auth_route_1.authRoute);

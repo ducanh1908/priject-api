@@ -44,5 +44,16 @@ class Usercontroller {
       next(e);
     }
   };
+  getUser = async (req: Request, res: Response, next: NextFunction) => {
+    let idUser = req.params.id;
+    try {
+        let user = await User.findById(idUser);
+        res.status(200).json(user);
+     }
+     catch (e) {
+        next(e);
+      }
+
+  }
 }
 export default new Usercontroller();

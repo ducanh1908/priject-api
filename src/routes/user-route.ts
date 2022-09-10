@@ -7,3 +7,4 @@ export const userRoute =  Router();
 userRoute.get("", userController.getAll)
 userRoute.delete("/:id", userController.deleteUser);
 userRoute.put("/:id", userController.updateUser);
+userRoute.get("/:id", userController.getUser)
