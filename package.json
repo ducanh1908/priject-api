@@ -1,0 +1,26 @@
+{
+  "name": "booking-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf dist && tsc -p tsconfig.build.json",
+    "start:dev": "tsc-watch -p tsconfig.build.json --onSuccess \"node dist/index.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "mongoose": "^6.6.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.8.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "tsc": "^2.0.4",
+    "tsc-watch": "^5.0.3"
+  }
+}
