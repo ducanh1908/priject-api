@@ -66,6 +66,22 @@ class Usercontroller {
                 next(e);
             }
         });
+        this.verifyEmail = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            let id = req.params.id;
+            console.log(id);
+            let user = yield user_model_1.default.findOne({ _id: id });
+            if (!user) {
+                res.status(401).json({
+                    message: "Email is not verified"
+                });
+            }
+            else {
+                yield user_model_1.default.updateOne({ _id: id }, { verified: true });
+                res.status(200).json({
+                    message: "Email is verified"
+                });
+            }
+        });
     }
 }
 exports.default = new Usercontroller();

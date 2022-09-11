@@ -23,6 +23,19 @@ const userSchema = new mongoose_1.Schema({
     avatar: {
         type: String,
     },
+    emailToken: {
+        type: String,
+    },
+    verified: {
+        type: Boolean,
+        default: false,
+    },
+    date: {
+        type: Date,
+        default: Date.now(),
+    }
+}, {
+    timestamps: true,
 });
 const User = (0, mongoose_1.model)("User", userSchema);
 exports.default = User;

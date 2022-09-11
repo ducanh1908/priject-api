@@ -11,3 +11,4 @@ exports.userRoute.get("", user_controller_1.default.getAll);
 exports.userRoute.delete("/:id", user_controller_1.default.deleteUser);
 exports.userRoute.put("/:id", user_controller_1.default.updateUser);
 exports.userRoute.get("/:id", user_controller_1.default.getUser);
+exports.userRoute.get("/verify-email/:id", user_controller_1.default.verifyEmail);

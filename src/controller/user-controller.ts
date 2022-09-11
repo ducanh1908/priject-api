@@ -55,5 +55,21 @@ class Usercontroller {
       }
 
   }
+  verifyEmail= async (req: Request, res: Response) => {
+    
+    let id = req.params.id
+    console.log(id);
+    let user = await User.findOne({_id: id})
+    if(!user) {
+      res.status(401).json({
+        message: "Email is not verified"
+      })
+    }
+    else {
+      await User.updateOne({ _id:id}, {verified: true});
+      res.status(200).json({
+        message: "Email is verified" })
+    }
+  }
 }
 export default new Usercontroller();
