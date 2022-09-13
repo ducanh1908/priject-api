@@ -8,6 +8,7 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const routes_1 = require("./src/routes/routes");
 const body_parser_1 = __importDefault(require("body-parser"));
+const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
 dotenv_1.default.config();
 const DB_URL = `${process.env.MONGO_URL}`;
@@ -15,6 +16,7 @@ mongoose_1.default.connect(DB_URL).then(() => {
     console.log("Connected to MongoDB");
 })
     .catch(err => console.log("MongoDB error: " + err));
+app.use((0, cors_1.default)());
 app.use(body_parser_1.default.json());
 app.use("", routes_1.router);
 app.listen(`${process.env.PORT}`, () => {
